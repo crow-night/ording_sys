@@ -7,12 +7,14 @@
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!--    &lt;!&ndash; jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) &ndash;&gt;-->
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
     <!--    &lt;!&ndash; 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 &ndash;&gt;-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
-<!--    <link rel="stylesheet" href="bootstrap.min.css">-->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/index.css">
@@ -36,19 +38,23 @@
 
                     <form class="navbar-form navbar-left">
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Search">
+                          <input type="text" class="form-control" placeholder="搜索美食和评价">
                         </div>
                         <button type="submit" class="btn btn-default">Submit</button>
                   </form>
 
                     <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">注册</button></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">登录</button></a></li>
+
+
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
+
+
 
     <div class="start">
         <div class="logo col-md-3">
@@ -68,22 +74,23 @@
                 <div class="carousel-inner">
                     <div class="item active">
                         <img src="../static/img/香菇鸡汤面.jpg" alt="First slide">
-<!--                        <img src="../static/../static/img/香菇鸡汤面.jpg" alt="First slide">-->
                     </div>
                     <div class="item jpg-1">
                         <img src="../static/img/盐焗鸡肉.jpg" alt="Second slide">
                     </div>
                     <div class="item jpg-2">
-                        <img src="../static/img/油焖大虾.jpg" alt="Third slide">
+                        <img src="../static/img/东坡鱼.jpg" alt="Third slide">
                     </div>
                 </div>
 
                 <!-- 轮播（Carousel）导航 -->
                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
                 </a>
                 <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
                 </a>
             </div>
         </div>
@@ -97,16 +104,16 @@
         <div class="menu">
         <div class="col-md-3">
             <ul class="app-menu">
-                <li><span class="glyphicon glyphicon-glass text-primary active">餐馆种类</span></li><br>
-                <li><span class="glyphicon glyphicon-glass text-primary">中餐</span></li><br>
-                <li><span class="glyphicon glyphicon-glass text-primary">火锅、串串</span></li><br>
+                <li><span class="glyphicon glyphicon-glass text-primary active">主打产品</span></li><br>
                 <li><span class="glyphicon glyphicon-glass text-primary">早餐</span></li><br>
-                <li><span class="glyphicon glyphicon-glass text-primary">冰凉饮品</span></li><br>
+                <li><span class="glyphicon glyphicon-glass text-primary">特色干锅</span></li><br>
+                <li><span class="glyphicon glyphicon-glass text-primary">特色菜</span></li><br>
+                <li><span class="glyphicon glyphicon-glass text-primary">家常菜</span></li><br>
                 <li><span class="glyphicon glyphicon-glass text-primary">面条饺子</span></li><br>
-                <li><span class="glyphicon glyphicon-glass text-primary">甜点蛋糕</span></li><br>
                 <li><span class="glyphicon glyphicon-glass text-primary">快食简餐</span></li><br>
-                <li><span class="glyphicon glyphicon-glass text-primary">汉堡披萨</span></li><br>
-                <li><span class="glyphicon glyphicon-glass text-primary">蔬菜水果</span></li><br>
+                <li><span class="glyphicon glyphicon-glass text-primary">酒水</span></li><br>
+                <li><span class="glyphicon glyphicon-glass text-primary">冰凉饮品</span></li><br>
+                <li><span class="glyphicon glyphicon-glass text-primary">水果平盘</span></li><br>
              </ul>
         </div>
         </div>
@@ -114,7 +121,7 @@
         <div class="col-md-9">
             <div class="row">
             <div class="col-xs-8">
-            <span class="Today-recommendation glyphicon glyphicon-chevron-right text-primary">Today's Featured Products</span>
+            <span class="Today-recommendation glyphicon glyphicon-fire text-primary">特色推荐</span>
             </div>
             </div>
 
@@ -156,42 +163,45 @@
 
     <div class="popular">
         <div class="col-md-4">
-            <ul class="comment-review-1">
+
                 <h3>
-                    <span class="Today-recommendation glyphicon glyphicon-chevron-right text-primary">Product Reviews</span><br>
+                    <span class="Today-recommendation glyphicon glyphicon-fire text-primary">热门评价</span><br>
                 </h3>
-                <ul class="comment-1-review">
-                    <p class="comment-1-introudce text-center">评价</p>
+            <ul class="comment-review-1">
 
-
-                </ul>
                 <ul class="comment-1-img">
                     <img href="#" src="../static/img/鱼.jpg" class="comment-1">
+                </ul>
+
+                 <ul class="comment-1-review">
+                    <p class="comment-1-introudce text-center">鱼肉鲜香可口，配米饭非常好吃！！！</p>
                 </ul>
             </ul>
 
             <ul class="comment-review-2">
-                <ul class="comment-2-review">
-                    <p class="comment-2-introudce text-center">fhshafbbvadhnfjsalndlajsksdanfjadsknfjdasklnfdlsjkndjklanfl</p>
-                </ul>
                 <ul class="comment-2-img">
-                    <img href="#" src="../static/img/沙拉.jpg" class="comment-2">
+                    <img href="#" src="../static/img/麻婆豆腐.jpg" class="comment-2">
+                </ul>
+                <ul class="comment-3-review">
+                    <p class="comment-2-introudce text-center">豆腐嫩滑可口，非常符合川菜的麻辣鲜香。</p>
                 </ul>
             </ul>
 
             <ul class="comment-review-3">
-                <ul class="comment-3-review">
-                    <p class="comment-2-introudce text-center">night crow</p>
-                </ul>
                 <ul class="comment-3-img">
-                    <img href="#" src="../static/img/清炒虾仁.jpg" class="comment-3">
+                    <img href="#" src="../static/img/海胆蒸蛋.jpg" class="comment-3">
+                </ul>
+                 <ul class="comment-3-review">
+                    <p class="comment-3-introudce text-center">海鲜的鲜味加上蛋的嫩滑，小孩子特别爱吃，营养价值特别高，我家孩子特别爱吃。</p>
                 </ul>
             </ul>
         </div>
 
         <div class="products">
             <div class="products-line-1 col-md-8">
-                    <span class="Today-recommendation glyphicon glyphicon-chevron-right text-primary">Product Reviews</span><br>
+                <h3>
+                    <span class="Today-recommendation glyphicon glyphicon-fire text-primary">热销产品</span><br>
+                </h3>
                 <div class="products-1 col-xs-4">
                     <img href="#" src="../static/img/盐焗鸡肉.jpg" class="products-1-img"><br>
                     <span class="products-1-introduce">盐焗鸡是广东省客家地区的传统美食，属于客家菜  ，也是广东当地客家招牌菜式之一；盐焗鸡流行于广东深圳、梅州、惠州、河源等地，现已成为享誉中国国内外的经典菜式，原材料是鸡、盐和盐焗粉等，味道咸香，口感鲜嫩。</span><br>
@@ -214,21 +224,21 @@
 
             <div class="products-line-2 col-md-8">
                 <div class="products-4 col-xs-4">
-                    <img href="#" src="../static/img/盐焗鸡肉.jpg" class="products-4-img">
-                    <span class="products-4-introduce">盐焗鸡是广东省客家地区的传统美食，属于客家菜 ，也是广东当地客家招牌菜式之一；盐焗鸡流行于广东深圳、梅州、惠州、河源等地，现已成为享誉中国国内外的经典菜式，原材料是鸡、盐和盐焗粉等，味道咸香，口感鲜嫩。</span><br>
+                    <img href="#" src="../static/img/东坡肘子.jpg" class="products-4-img">
+                    <span class="products-4-introduce">东坡肘子有肥而不腻、粑而不烂的特点，色、香、味、形俱佳 ，东坡肘子汤汁乳白，雪豆粉白，猪肘肥软适口，原汁原味，香气四溢。</span><br>
                     <span class="glyphicon glyphicon-yen introudce-4-price">价格：40.00</span><br>
                     <button type="button" class="btn btn-primary">加入购物车</button>
                 </div>
 
                 <div class="products-5 col-xs-4">
-                    <img href="#" src="../static/img/鱼.jpg" class="products-5-img">
-                    <span class="products-5-introudce"></span>红烧鱼是用鲳鱼制作的一道闽菜菜品。鱼不仅味道鲜美，而且营养价值极高。其蛋白质含量为猪肉的2倍，且属于优质蛋白，人体吸收率高。鱼中富含丰富的硫胺素、核黄素、尼克酸、维生素d等和一定量的钙、磷、铁等矿物质。鱼肉中脂肪含量虽低，但其中的脂肪酸被证实有降糖、护心和防癌的作用。鱼肉中的维生素d、钙、磷，能有效地预防骨质疏松症。祖国医学认为食鱼要讲究对症，对症吃“鱼”，它的食用和医用价值才能显现出来。<br>
+                    <img href="#" src="../static/img/东坡羹.jpg" class="products-5-img">
+                    <span class="products-5-introudce"></span>东坡羹是一道色香味俱全的传统名点。是指苏轼 所烹调的一种菜羹。 宋 苏轼《东坡羹颂》引:"东坡羹，盖 东坡居士 所煮菜羹也。不用鱼肉五味，有自然之甘。其法以菘若蔓菁若芦菔若荠，皆揉洗数过，去辛苦汁，以生油少许涂釜缘及瓷盌在菜汤中，入生米为糁。<br>
                     <span class="glyphicon glyphicon-yen introudce-5-price">价格：30.00</span><br>
                     <button type="button" class="btn btn-primary">加入购物车</button>
                 </div>
 
                 <div class="products-6 col-xs-4">
-                    <img href="#" src="../static/img/红烧狮子头.jpg" class="products-6-img">
+                    <img href="#" src="../static/img/四喜丸子.jpg" class="products-6-img">
                     <span class="products-6-introudce">红烧狮子头,也叫四喜丸子，是一道淮扬名菜。将有肥有瘦的肉配上荸荠，香菇等材料，做成丸子，然后先炸后煮。出锅后香味扑鼻，光闻起来就引动食欲，醇香味浓的肉块与汁液，超级美味。</span><br>
                     <span class="glyphicon-yen glyphicon-yen introudce-6-price">价格：40.00</span><br>
                     <button type="button" class="btn btn-primary">加入购物车</button>
@@ -255,20 +265,40 @@
 
     </div>
 
+    <!-- 登录框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
 
+                <h4 >请登录</h4>
+                    <div class="form-group">
+                        <label for="username">用户名</label>
+                        <span id="user"  class="error"> </span>
+                        <input type="text" class="form-control"  name="username"
+                               id="username" placeholder="用户名" onblur='checkName()' required />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <span id="psword" class="error"> </span>
 
+                        <input type="password" class="form-control"
+                               name="password"
+                               id="password" placeholder="密码" onblur='checkPassword()' required />
 
-
-
-
-
-
-
-
-
-
-
-
+            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">忘记密码，找回！</button>
+                    <button type="button" class="btn btn-primary">登录</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+        </div>
+    </div>
 
 
 
