@@ -1,0 +1,26 @@
+.navbus {
+    line-height:150px;
+    background-color: #eeeeee;
+    height:700px;
+    width:100px;
+    float:left;
+    padding:5px;
+}
+
+.namebus {
+    background-color: #eeeeee;
+    height:60px;
+    color:black;
+    text-align:center;
+    padding:20px;
+}
+
+.order {
+    position: relative;
+    left: 200px;
+    height:260px;
+    width: 300px;
+    border: 2px solid black;
+    border-radius: 12px;
+
+}
