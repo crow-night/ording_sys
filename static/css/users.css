@@ -264,14 +264,14 @@ img {
   }
 }
 
-/*.iframe-page-content{*/
-/*    border-left-width: 0px;*/
-/*    border-right-width: 0px;*/
-/*    border-top-width: 0px;*/
-/*    margin-left: 0px;*/
-/*    margin-right: 0px;*/
-/*    padding-right: 5px;*/
-/*    padding-left: 5px;*/
-/*    border-bottom-width: 0px;*/
+.iframe-page-content{
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-top-width: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-bottom-width: 0px;
 
-/*}*/
+}

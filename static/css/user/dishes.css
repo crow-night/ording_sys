@@ -1,0 +1,32 @@
+body{
+    background-color: #ffffff;
+}
+
+.dishes-all .text-center{
+    text-align: center;
+    align-content: center;
+    line-height: 30px;
+    color: #0f0f0f;
+    font-size: 20px;
+    margin: 0 auto
+}
+
+.dishes_photo{
+    width: 22%;
+    height: 22%;
+}
+
+.dishes_introduction{
+    height: 100%;
+    width: 30%;
+}
+.img-dishes{
+    width: 60%;
+    height: 60%;
+}
+
+
+
+
+
+
