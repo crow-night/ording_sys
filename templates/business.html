@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>users</title>
+    <title>business</title>
 </head>
+<body>
+
     <!--    &lt;!&ndash; jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) &ndash;&gt;-->
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
     <!--    &lt;!&ndash; 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 &ndash;&gt;-->
@@ -12,9 +14,10 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/users.css">
+    <link rel="stylesheet" href="../static/css/businsess.css">
     <link rel="stylesheet" href="../static/fonts/font-awesome.min.css">
 
 
@@ -23,7 +26,7 @@
         <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
 
         <ul class="app-nav">
-        <span class="user_platform">用户操作平台</span>
+        <span class="user_platform">商家操作平台</span>
 
         </ul>
 
@@ -42,6 +45,9 @@
          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span>
          </button>
          <ul class="dropdown-menu">
+             <li><a href="#" onclick="menuClick('business/profile.html')">个人信息</a></li>
+             <li role="separator" class="divider"></li>
+             <li><a href="index.html">退出</a></li>
          </ul>
         </div>
 
@@ -57,15 +63,44 @@
         </div>
       </div>
       <ul class="app-menu">
+        <li><a class="app-menu__item" href="#" onclick="menuClick('business/orders.html')"><span class="glyphicon glyphicon-shopping-cart">订单信息</span></a></li>
+          <li><a class="app-menu__item" href="#" onclick="menuClick('business/profile.html')"><span class="glyphicon glyphicon-shopping-cart">店铺管理</span></a></li>
+        <li><a class="app-menu__item" href="#" onclick="menuClick('dishes.html')"><span class="glyphicon glyphicon-tag">菜品管理</span></a></li>
+        <li><a class="app-menu__item" href="#" onclick="menuClick('business/orders.html')"><span class="glyphicon glyphicon-comment">联系用户和商家</span></a></li>
+        <li><a class="app-menu__item" href="#" onclick="menuClick('business/comment.html')"><span class="glyphicon glyphicon-pencil">评价管理</span></a></li>
+
+      </ul>
+    </aside>
+
+    <main class="app-content" style="margin-top: 30px;">
+	   <div>
+           <iframe id="iframe-page-content" src="business/orders.html" width="100%"  frameborder="no" border="0" marginwidth="0" marginheight=" 0" scrolling="auto" allowtransparency="yes">
+
+           </iframe>
+
+	   </div>
+	</main>
 
 
-<!--js激活下拉菜单-->
-<script type="text/javascript">
-	$(function(){
-		$(".btn").dropdown();
-	});
-</script>
+    <!--js激活下拉菜单-->
+    <script type="text/javascript">
+        $(function(){
+            $(".btn").dropdown();
+        });
+    </script>
 
+
+    <script type="text/javascript">
+      $(function() {
+		var height=document.documentElement.clientHeight;
+		var headerHeight=document.getElementById('headerId').offsetHeight;
+		document.getElementById('iframe-page-content').style.height=(height-headerHeight)+'px';
+		// document.getElementById('iframe-page-content').style.height='1200px';
+		});
+     var menuClick = function(menuUrl) {
+			$("#iframe-page-content").attr('src',menuUrl);
+			};
+    </script>
 
 
 </body>
