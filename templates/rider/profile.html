@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>骑手个人信息</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--    &lt;!&ndash; jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) &ndash;&gt;-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!--    &lt;!&ndash; 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 &ndash;&gt;-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/rider/profile.css">
+
+</head>
+<body>
+
+    <div class="setting-comment">
+        <div class="col-md-12">
+            <p class="title">个人信息</p>
+            <p class="des">账户设置</p>
+        </div>
+
+        <div class="item clearfix">
+            <div class="clearfix">
+                <div class="field-name">
+                    <span>账号</span>
+                </div>
+                <div class="field-list">
+                    <span>night_crow</span>
+                </div>
+                <div class="upload-container">
+                    <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myAccount">修改</button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="item clearfix">
+            <div class="clearfix">
+                <div class="field-name">
+                    <span>密码</span>
+                </div>
+                <div class="field-list">
+                    <span>night_crow</span>
+                </div>
+                <div class="upload-container">
+                    <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myPassword">修改</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="item clearfix">
+            <div class="clearfix">
+                <div class="field-name">
+                    <span>手机号码</span>
+                </div>
+                <div class="field-list">
+                    <span>night_crow</span>
+                </div>
+                <div class="upload-container">
+                    <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myPhone">修改</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="item clearfix">
+            <div class="clearfix">
+                <div class="field-name">
+                    <span>姓名</span>
+                </div>
+                <div class="field-list">
+                    <span>night_crow</span>
+                </div>
+                <div class="upload-container">
+                    <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myName">修改</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="item clearfix">
+            <div class="clearfix">
+                <div class="field-name">
+                    <span>年龄</span>
+                </div>
+                <div class="field-list">
+                    <span>night_crow</span>
+                </div>
+                <div class="upload-container">
+                    <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myAge">修改</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="item clearfix">
+            <div class="clearfix">
+                <div class="field-name">
+                    <span>性别</span>
+                </div>
+                <div class="field-list">
+                    <span>男</span>
+                </div>
+                <div class="upload-container">
+<!--                    <button class="btn-change">修改</button>-->
+                    <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myGender">修改</button>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- 登录框（Modal） -->
+    <div class="modal fade" id="myAccount" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+
+                    <h4 >修改账号</h4>
+                        <div class="form-group">
+                            <label for="myAccount">当前账号</label>
+                            <span id="nowacc" class="error"> </span>
+
+                            <input type="password" class="form-control" name="password" id="nowAccount" placeholder="密码" onblur='checkPassword()' required />
+
+                        </div>
+                        <div class="form-group">
+                            <label for="myAccount">新账号</label>
+                            <span id="newAccs" class="error"> </span>
+
+                            <input type="password" class="form-control" name="password" id="newAccounts" placeholder="密码" onblur='checkPassword()' required />
+
+                        </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">确认修改</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myPassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+
+                    <h4 >修改密码</h4>
+                        <div class="form-group">
+                            <label for="myPassword">当前密码</label>
+                            <span id="nowPaswd" class="error"> </span>
+
+                            <input type="password" class="form-control" name="password" id="nowPasswords" placeholder="密码" onblur='checkPassword()' required />
+
+                        </div>
+                        <div class="form-group">
+                            <label for="myPassword">新密码</label>
+                            <span id="newPaswd" class="error"> </span>
+
+                            <input type="password" class="form-control" name="password" id="newPasswords" placeholder="密码" onblur='checkPassword()' required />
+
+                        </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">确认修改</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="myPhone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+
+                    <h4 >修改电话号码</h4>
+                        <div class="form-group">
+                            <label for="myPhone">当前号码</label>
+                            <span id="nowPh" class="error"> </span>
+
+                            <input type="password" class="form-control" name="password" id="nowPhone" placeholder="密码" onblur='checkPassword()' required />
+
+                        </div>
+                        <div class="form-group">
+                            <label for="myPhone">新号码</label>
+                            <span id="newPh" class="error"> </span>
+
+                            <input type="password" class="form-control" name="password" id="newPhone" placeholder="密码" onblur='checkPassword()' required />
+
+                        </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">确认修改</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="myName" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+
+                    <h4 >修改姓名</h4>
+                        <div class="form-group">
+                            <label for="myName">当前姓名</label>
+                            <span id="nowNa" class="error"> </span>
+
+                            <input type="password" class="form-control" name="password" id="nowName" placeholder="密码" onblur='checkPassword()' required />
+
+                        </div>
+                        <div class="form-group">
+                            <label for="myName">新姓名</label>
+                            <span id="newNa" class="error"> </span>
+
+                            <input type="password" class="form-control" name="password" id="newName" placeholder="密码" onblur='checkPassword()' required />
+
+                        </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">确认修改</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myAge" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+
+                    <h4 >修改年龄</h4>
+                        <div class="form-group">
+                            <label for="myAge">当前年龄</label>
+                            <span id="nowAg" class="error"> </span>
+
+                            <input type="password" class="form-control" name="password" id="nowAge" placeholder="密码" onblur='checkPassword()' required />
+
+                        </div>
+                        <div class="form-group">
+                            <label for="myAge">新年龄</label>
+                            <span id="newAg" class="error"> </span>
+
+                            <input type="password" class="form-control" name="password" id="newAge" placeholder="密码" onblur='checkPassword()' required />
+
+                        </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">确认修改</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myGender" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+
+                    <h4 >修改性别</h4>
+                        <div class="form-group">
+                            <label for="myGender">当前性别</label>
+                            <span id="nowGen" class="error"> </span>
+
+                            <input type="password" class="form-control" name="password" id="nowGender" placeholder="密码" onblur='checkPassword()' required />
+
+                        </div>
+                        <div class="form-group">
+                            <label for="myGender">新性别</label>
+                            <span id="newGen" class="error"> </span>
+
+                            <input type="password" class="form-control" name="password" id="newGender" placeholder="密码" onblur='checkPassword()' required />
+
+                        </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">确认修改</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

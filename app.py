@@ -21,7 +21,7 @@ def login():
                 return "The information you entered is wrong!"
         elif name in business:
             if business[name] == password:
-                return render_template("businsess.html")
+                return render_template("business.html")
             else:
                 return "The information you entered is wrong!"
         elif name in rider:
