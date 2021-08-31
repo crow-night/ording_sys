@@ -117,13 +117,14 @@ body{
 }
 
 .dishesType .menu .col-md-3 {
-    background: #ffffff;
+    background: #54ff2e;
     border: #000000;
     border: 2px solid rgba(0,0,0,255);
     padding-top:10px;
     padding-bottom: 10px;
     width: 250px;
     height: 400px;
+    margin-top: 20px;
 }
 
 span.text-primary.active{
@@ -301,16 +302,16 @@ span.featured-1-introduce {
     height: 150px;
 }
 
-.col-md-12{
-    padding-top: 50px;
-    width: 100%;
-    height: 300px;
-}
+/*.col-md-12{*/
+/*    padding-top: 50px;*/
+/*    width: 100%;*/
+/*    height: 300px;*/
+/*}*/
 
-.last-1.col-xs-4 {
-    width: 25%;
-    height: 300px;
-}
+/*.last-1.col-xs-4 {*/
+/*    width: 25%;*/
+/*    height: 300px;*/
+/*}*/
 
 
 .modal-header {

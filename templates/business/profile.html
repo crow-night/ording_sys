@@ -21,6 +21,8 @@
 </head>
 <body>
 
+    <form action="/business_profile" method="post">
+
     <div class="setting-comment">
         <div class="col-md-12">
             <p class="title">个人信息</p>
@@ -33,7 +35,7 @@
                     <span>账号</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ business_account }}</span>
                 </div>
                 <div class="upload-container">
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myAccount">修改</button>
@@ -48,7 +50,7 @@
                     <span>密码</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ business_password }}</span>
                 </div>
                 <div class="upload-container">
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myPassword">修改</button>
@@ -63,7 +65,7 @@
                     <span>默认地址</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ business_Address }}</span>
                 </div>
                 <div class="upload-container">
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myDefaultAddress">修改</button>
@@ -78,7 +80,7 @@
                     <span>手机号码</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ business_phone }}</span>
                 </div>
                 <div class="upload-container">
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myPhone">修改</button>
@@ -94,7 +96,7 @@
                     <span>姓名</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ business_Name }}</span>
                 </div>
                 <div class="upload-container">
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myName">修改</button>
@@ -152,9 +154,8 @@
                     <h4 >修改密码</h4>
                         <div class="form-group">
                             <label for="myPassword">当前密码</label>
-                            <span id="nowPaswd" class="error"> </span>
-
-                            <input type="password" class="form-control" name="password" id="nowPasswords" placeholder="密码" onblur='checkPassword()' required />
+                            <span id="nowPaswd" class="error"></span>
+                            <P>{{ business_password }}</P>
 
                         </div>
                         <div class="form-group">
@@ -284,7 +285,7 @@
     </div>
 
 
-
+</form>
 
 
 </body>

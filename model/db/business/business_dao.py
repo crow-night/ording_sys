@@ -2,7 +2,7 @@ from basic import MysqlHelper
 import config
 
 MysqlHelper = MysqlHelper(config.HOST, config.USER, config.PWSSED, config.DATABASE, config.AUTH_PLUGIN_MAP)
-sql_one = "select * from business where business_id = %s"
+sql_one = "select * from business where business_account = %s"
 sql_all = "select * from business"
 sql_insert = "INSERT INTO business ( business_account, business_password, business_Name, business_Address, business_phone, business_headPortrait ) VALUES (%s, %s, %s, %s, %s, %s )"
 sql_update = "INSERT INTO business ( business_account, business_password, business_Name, business_Address, business_phone, business_headPortrait ) VALUES (%s, %s, %s, %s, %s, %s )"

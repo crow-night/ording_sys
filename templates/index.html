@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="../static/css/index.css">
 
 
-
 </head>
+
 
     <div class="navbox">
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -30,28 +30,66 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
-
-                        <li><a href="#">User</a></li>
-                        <li><a href="#">Business</a></li>
-                        <li><a href="#">Rider</a></li>
+                        <li><a href="/user_profile">User</a></li>
+                        <li><a href="/business_profile">Business</a></li>
+                        <li><a href="/rider_profile">Rider</a></li>
                     </ul>
 
                     <form class="navbar-form navbar-left">
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="搜索美食和评价">
+                            <input type="text" class="form-control" placeholder="搜索美食和评价">
                         </div>
                         <button type="submit" class="btn btn-default">Submit</button>
-                  </form>
+                    </form>
+
 
                     <ul class="nav navbar-nav navbar-right">
-                    <li><a href="register.html"><span class="glyphicon glyphicon-log-in"></span> <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">注册</button></a></li>
+                    <li><a href="/register"><span class="glyphicon glyphicon-log-in"></span> <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">注册</button></a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">登录</button></a></li>
 
                     </ul>
+
                 </div>
             </div>
         </nav>
     </div>
+
+    <form action="/login" method="post">
+    <!-- 登录框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+
+                <h4 >请登录</h4>
+                    <div class="form-group">
+                        <label for="username">用户名</label>
+                        <span id="user"  class="error"> </span>
+                        <input type="text" class="form-control"  name="username" id="username" placeholder="用户名">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <span id="psword" class="error"> </span>
+
+                        <input type="password" class="form-control" name="password" id="password" placeholder="密码">
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">忘记密码，找回！</button>
+                <button type="submit" class="btn btn-primary">登录</button>
+            </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+</form>
+
 
 
 
@@ -130,8 +168,8 @@
                     <div class="col-xs-9">
                         <span class="featured-1-introduce">红烧狮子头,也叫四喜丸子，是一道淮扬名菜。将有肥有瘦的肉配上荸荠，香菇等材料，做成丸子，然后先炸后煮。出锅后香味扑鼻，光闻起来就引动食欲，醇香味浓的肉块与汁液，超级美味。</span><br>
                         <span class=" glyphicon glyphicon-yen introudce-1-price">价格：20.00</span><br>
-                        <button type="button" class="btn btn-primary">加入购物车</button>
-
+                        <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">加入购物车</button>
+                        
                     </div>
                 </div>
             </div>
@@ -142,7 +180,7 @@
                     <div class="col-xs-9">
                         <span class="featured-2-introduce">油焖大虾是山东省的一道特色名菜，属于鲁菜；该菜品的主要食材为清明前渤海湾的大对虾，使用鲁菜特有的油焖技法。这是一道历史悠久的名菜，鲜香甜咸四种味道相辅相成，回味无穷。近些年流行的油焖大虾是起源于湖北潜江的鄂菜，使用的是淡水的鳌虾（俗称小龙虾）制作，与鲁菜的油焖大虾不同。</span><br>
                         <span class="glyphicon glyphicon-yen introudce-2-price">价格：25.00</span><br>
-                        <button type="button" class="btn btn-primary">加入购物车</button>
+                        <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">加入购物车</button>
                     </div>
                 </div>
             </div>
@@ -153,7 +191,7 @@
                     <div class="col-xs-9">
                         <span class="featured-3-introduce">香菇鸡汤是一道色香味俱全的地方名肴，属于浙菜系。制作原料有鸡肉，干贝丁，香菇等，这道汤可以补气血、养颜、提高免疫力。</span><br>
                         <span class="glyphicon glyphicon-yen introudce-3-price">价格：30.00</span><br>
-                        <button type="button" class="btn btn-primary">加入购物车</button>
+                        <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">加入购物车</button>
                     </div>
                 </div>
             </div>
@@ -205,19 +243,19 @@
                     <img href="#" src="../static/img/盐焗鸡肉.jpg" class="products-1-img"><br>
                     <span class="products-1-introduce">盐焗鸡是广东省客家地区的传统美食，属于客家菜  ，也是广东当地客家招牌菜式之一；盐焗鸡流行于广东深圳、梅州、惠州、河源等地，现已成为享誉中国国内外的经典菜式，原材料是鸡、盐和盐焗粉等，味道咸香，口感鲜嫩。</span><br>
                     <span class="glyphicon glyphicon-yen introudce-3-price">价格：30.00</span><br>
-                    <button type="button" class="btn btn-primary">加入购物车</button>
+                    <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">加入购物车</button>
                 </div>
                 <div class="products-2 col-xs-4">
                     <img href="#" src="../static/img/清炒虾仁.jpg" class="products-2-img"><br>
                     <span class="products-2-introduce">清炒虾仁是江苏省的一道传统名菜，属于苏菜系；该菜品是以虾仁为主要材料炒制的菜肴。清淡爽口，易于消化，老幼皆宜，深受食客欢迎，其配料可以随个人喜好而变化，做法多样。</span><br>
                     <span class="glyphicon glyphicon-yen introudce-3-price">价格：30.00</span><br>
-                    <button type="button" class="btn btn-primary">加入购物车</button>
+                    <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">加入购物车</button>
                 </div>
                 <div class="products-3 col-xs-4">
                     <img href="#" src="../static/img/沙拉.jpg" class="products-3-img">
                     <span class="products-3-introduce">蔬菜沙拉是一道以圆白菜、番茄、黄瓜等作为主要食材制作而成的美食。蔬菜沙拉是一种非常营养健康的饮食方法。首先它大多不必加热，这样会最大限度的保持住蔬菜中的各种营养不至于被破坏或流失。</span><br>
                     <span class="glyphicon glyphicon-yen introudce-3-price">价格：30.00</span><br>
-                    <button type="button" class="btn btn-primary">加入购物车</button>
+                    <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">加入购物车</button>
                 </div>
             </div>
 
@@ -226,80 +264,43 @@
                     <img href="#" src="../static/img/东坡肘子.jpg" class="products-4-img">
                     <span class="products-4-introduce">东坡肘子有肥而不腻、粑而不烂的特点，色、香、味、形俱佳 ，东坡肘子汤汁乳白，雪豆粉白，猪肘肥软适口，原汁原味，香气四溢。</span><br>
                     <span class="glyphicon glyphicon-yen introudce-4-price">价格：40.00</span><br>
-                    <button type="button" class="btn btn-primary">加入购物车</button>
+                    <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">加入购物车</button>
                 </div>
 
                 <div class="products-5 col-xs-4">
                     <img href="#" src="../static/img/东坡羹.jpg" class="products-5-img">
                     <span class="products-5-introudce"></span>东坡羹是一道色香味俱全的传统名点。是指苏轼 所烹调的一种菜羹。 宋 苏轼《东坡羹颂》引:"东坡羹，盖 东坡居士 所煮菜羹也。不用鱼肉五味，有自然之甘。其法以菘若蔓菁若芦菔若荠，皆揉洗数过，去辛苦汁，以生油少许涂釜缘及瓷盌在菜汤中，入生米为糁。<br>
                     <span class="glyphicon glyphicon-yen introudce-5-price">价格：30.00</span><br>
-                    <button type="button" class="btn btn-primary">加入购物车</button>
+                    <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">加入购物车</button>
                 </div>
 
                 <div class="products-6 col-xs-4">
                     <img href="#" src="../static/img/四喜丸子.jpg" class="products-6-img">
                     <span class="products-6-introudce">红烧狮子头,也叫四喜丸子，是一道淮扬名菜。将有肥有瘦的肉配上荸荠，香菇等材料，做成丸子，然后先炸后煮。出锅后香味扑鼻，光闻起来就引动食欲，醇香味浓的肉块与汁液，超级美味。</span><br>
                     <span class="glyphicon-yen glyphicon-yen introudce-6-price">价格：40.00</span><br>
-                    <button type="button" class="btn btn-primary">加入购物车</button>
+                    <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">加入购物车</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="last col-md-12">
-        <div class="last-1 col-xs-4">
-            <span class="user-help text-primary">用户帮助</span><br>
-            <span class="user-help-content">申请退款<br>常见问题<br>用户协议<br>隐私政策<br>反诈骗公告<br>消费者权益保障</span><br>
+<!--    <div class="last col-md-12">-->
+<!--        <div class="last-1 col-xs-4">-->
+<!--            <span class="user-help text-primary">用户帮助</span><br>-->
+<!--            <span class="user-help-content">申请退款<br>常见问题<br>用户协议<br>隐私政策<br>反诈骗公告<br>消费者权益保障</span><br>-->
 
-        </div>
+<!--        </div>-->
 
-        <div class="last-2 col-xs-4">
-            <span class="business-cooperation text-primary">商务合作</span><br>
-            <span class="business-cooperation-content">美食商家入驻<br>外卖开店申请<br>综合商家入驻<br>商家开票申请<br>智能收银机</span><br>
-        </div>
+<!--        <div class="last-2 col-xs-4">-->
+<!--            <span class="business-cooperation text-primary">商务合作</span><br>-->
+<!--            <span class="business-cooperation-content">美食商家入驻<br>外卖开店申请<br>综合商家入驻<br>商家开票申请<br>智能收银机</span><br>-->
+<!--        </div>-->
 
-        <div class="last-3 col-xs-4">
+<!--        <div class="last-3 col-xs-4">-->
 
-        </div>
+<!--        </div>-->
 
-    </div>
-
-    <!-- 登录框（Modal） -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-
-                <h4 >请登录</h4>
-                    <div class="form-group">
-                        <label for="username">用户名</label>
-                        <span id="user"  class="error"> </span>
-                        <input type="text" class="form-control"  name="username"
-                               id="username" placeholder="用户名" onblur='checkName()' required />
-                    </div>
-                    <div class="form-group">
-                        <label for="password">密码</label>
-                        <span id="psword" class="error"> </span>
-
-                        <input type="password" class="form-control"
-                               name="password"
-                               id="password" placeholder="密码" onblur='checkPassword()' required />
-
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary">忘记密码，找回！</button>
-                <button type="button" class="btn btn-primary">登录</button>
-            </div>
-
-            </div>
-        </div>
-        </div>
-    </div>
+<!--    </div>-->
 
 
 

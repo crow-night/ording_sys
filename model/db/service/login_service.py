@@ -2,6 +2,7 @@ from users import users_dao
 from business import business_dao
 from riders import riders_dao
 
+
 def login():
     dic_user, dic_bisiness, dic_rider = {}, {}, {}
     list_user = users_dao.get_users_all()
@@ -28,11 +29,11 @@ def login():
 
     return dic_user, dic_bisiness, dic_rider
 
-def register(params=()):
-    if len(params) == 8:
-        users_dao.insert_users(params)
-    elif len(params) == 6:
-        business_dao.insert_business(params)
-    else:
-        riders_dao.insert_riders(params)
+# def register(params=()):
+#     if len(params) == 8:
+#         users_dao.insert_users(params)
+#     elif len(params) == 6:
+#         business_dao.insert_business(params)
+#     else:
+#         riders_dao.insert_riders(params)
 

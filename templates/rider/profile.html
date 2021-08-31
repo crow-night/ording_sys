@@ -21,6 +21,9 @@
 </head>
 <body>
 
+    <form action="/rider_profile" method="post">
+
+
     <div class="setting-comment">
         <div class="col-md-12">
             <p class="title">个人信息</p>
@@ -33,7 +36,7 @@
                     <span>账号</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ riders_account }}</span>
                 </div>
                 <div class="upload-container">
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myAccount">修改</button>
@@ -48,7 +51,7 @@
                     <span>密码</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ riders_password }}</span>
                 </div>
                 <div class="upload-container">
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myPassword">修改</button>
@@ -64,7 +67,7 @@
                     <span>手机号码</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ riders_phone }}</span>
                 </div>
                 <div class="upload-container">
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myPhone">修改</button>
@@ -80,7 +83,7 @@
                     <span>姓名</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ riders_name }}</span>
                 </div>
                 <div class="upload-container">
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myName">修改</button>
@@ -95,7 +98,7 @@
                     <span>年龄</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ riders_age }}</span>
                 </div>
                 <div class="upload-container">
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myAge">修改</button>
@@ -110,7 +113,7 @@
                     <span>性别</span>
                 </div>
                 <div class="field-list">
-                    <span>男</span>
+                    <span>{{ riders_gender }}</span>
                 </div>
                 <div class="upload-container">
 <!--                    <button class="btn-change">修改</button>-->
@@ -340,7 +343,7 @@
     </div>
 
 
-
+</form>
 
 </body>
 </html>

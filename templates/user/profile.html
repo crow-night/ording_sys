@@ -21,6 +21,8 @@
 </head>
 <body>
 
+    <form action="/user_profile" method="get">
+
     <div class="setting-comment">
         <div class="col-md-12">
             <p class="title">个人信息</p>
@@ -33,10 +35,10 @@
                     <span>账号</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ users_account }}</span>
                 </div>
                 <div class="upload-container">
-                    <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myAccount">修改</button>
+                    <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myAccount" >修改</button>
 
                 </div>
             </div>
@@ -48,7 +50,7 @@
                     <span>密码</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ users_password }}</span>
                 </div>
                 <div class="upload-container">
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myPassword">修改</button>
@@ -63,7 +65,7 @@
                     <span>默认地址</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ users_defaultAddress }}</span>
                 </div>
                 <div class="upload-container">
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myDefaultAddress">修改</button>
@@ -78,7 +80,7 @@
                     <span>手机号码</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ users_phone }}</span>
                 </div>
                 <div class="upload-container">
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myPhone">修改</button>
@@ -94,7 +96,7 @@
                     <span>姓名</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ users_name }}</span>
                 </div>
                 <div class="upload-container">
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myName">修改</button>
@@ -109,7 +111,7 @@
                     <span>年龄</span>
                 </div>
                 <div class="field-list">
-                    <span>night_crow</span>
+                    <span>{{ users_age }}</span>
                 </div>
                 <div class="upload-container">
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myAge">修改</button>
@@ -124,10 +126,9 @@
                     <span>性别</span>
                 </div>
                 <div class="field-list">
-                    <span>男</span>
+                    <span>{{ users_gender }}</span>
                 </div>
                 <div class="upload-container">
-<!--                    <button class="btn-change">修改</button>-->
                     <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myGender">修改</button>
 
                 </div>
@@ -139,7 +140,8 @@
     </div>
 
 
-    <!-- 登录框（Modal） -->
+
+    <!-- 修改框（Modal） -->
     <div class="modal fade" id="myAccount" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -152,20 +154,11 @@
                         <div class="form-group">
                             <label for="myAccount">当前账号</label>
                             <span id="nowacc" class="error"> </span>
-
-                            <input type="password" class="form-control" name="password" id="nowAccount" placeholder="密码" onblur='checkPassword()' required />
-
-                        </div>
-                        <div class="form-group">
-                            <label for="myAccount">新账号</label>
-                            <span id="newAccs" class="error"> </span>
-
-                            <input type="password" class="form-control" name="password" id="newAccounts" placeholder="密码" onblur='checkPassword()' required />
-
+                            <p name="account">{{ users_account }}</p><br>
+                            <span>账号是唯一  不能修改</span>
                         </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">确认修改</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 
                     </div>
@@ -174,6 +167,7 @@
         </div>
     </div>
 
+    <form action="/modify_user_password" method="get">
     <div class="modal fade" id="myPassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -186,20 +180,18 @@
                         <div class="form-group">
                             <label for="myPassword">当前密码</label>
                             <span id="nowPaswd" class="error"> </span>
-
-                            <input type="password" class="form-control" name="password" id="nowPasswords" placeholder="密码" onblur='checkPassword()' required />
-
+                            <p>{{ users_password }}</p>
                         </div>
                         <div class="form-group">
                             <label for="myPassword">新密码</label>
                             <span id="newPaswd" class="error"> </span>
 
-                            <input type="password" class="form-control" name="password" id="newPasswords" placeholder="密码" onblur='checkPassword()' required />
+                            <input type="password" class="form-control" name="newPasswords" id="newPasswords" placeholder="密码">
 
                         </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">确认修改</button>
+                        <button type="submit" class="btn btn-primary">确认修改</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 
                     </div>
@@ -208,6 +200,7 @@
             </div>
         </div>
     </div>
+    </form>
 
     <div class="modal fade" id="myDefaultAddress" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -221,9 +214,7 @@
                         <div class="form-group">
                             <label for="myDefaultAddress">当前地址</label>
                             <span id="nowDA" class="error"> </span>
-
-                            <input type="password" class="form-control" name="password" id="nowmyDefaultAddress" placeholder="密码" onblur='checkPassword()' required />
-
+                            <p>{{ users_defaultAddress }}</p>
                         </div>
                         <div class="form-group">
                             <label for="myDefaultAddress">新地址</label>
@@ -257,8 +248,7 @@
                             <label for="myPhone">当前号码</label>
                             <span id="nowPh" class="error"> </span>
 
-                            <input type="password" class="form-control" name="password" id="nowPhone" placeholder="密码" onblur='checkPassword()' required />
-
+                            <p>{{ users_phone }}</p>
                         </div>
                         <div class="form-group">
                             <label for="myPhone">新号码</label>
@@ -294,8 +284,7 @@
                             <label for="myName">当前姓名</label>
                             <span id="nowNa" class="error"> </span>
 
-                            <input type="password" class="form-control" name="password" id="nowName" placeholder="密码" onblur='checkPassword()' required />
-
+                            <P>{{ users_name }}</P>
                         </div>
                         <div class="form-group">
                             <label for="myName">新姓名</label>
@@ -329,8 +318,7 @@
                             <label for="myAge">当前年龄</label>
                             <span id="nowAg" class="error"> </span>
 
-                            <input type="password" class="form-control" name="password" id="nowAge" placeholder="密码" onblur='checkPassword()' required />
-
+                            <p>{{ users_age }}</p>
                         </div>
                         <div class="form-group">
                             <label for="myAge">新年龄</label>
@@ -351,6 +339,7 @@
         </div>
     </div>
 
+
     <div class="modal fade" id="myGender" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -364,8 +353,7 @@
                             <label for="myGender">当前性别</label>
                             <span id="nowGen" class="error"> </span>
 
-                            <input type="password" class="form-control" name="password" id="nowGender" placeholder="密码" onblur='checkPassword()' required />
-
+                            <P>{{ users_gender }}</P>
                         </div>
                         <div class="form-group">
                             <label for="myGender">新性别</label>
@@ -386,7 +374,7 @@
         </div>
     </div>
 
-
+    </form>
 
 
 </body>
