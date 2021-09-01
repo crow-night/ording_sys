@@ -3,12 +3,17 @@ from model.db.service import login_service
 from model.db.riders import riders_dao
 from model.db.users import users_dao
 from model.db.business import business_dao
+from model.db.dishes import  dishes_dao
+from datetime import timedelta
+
 
 app = Flask(__name__)
+account_data = list()
 
 @app.route('/')
 def index():
     return render_template("index.html")
+
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
@@ -19,27 +24,40 @@ def login():
         user, business, rider = login_service.login()
         if name in user:
             if user[name] == password:
-                return render_template("users.html")
+                account_data.append(name)
+                # data = users_dao.get_users_one(name)
+                # return render_template("users.html", **data)
+
+                data = dishes_dao.find_all()
+                # account = account_data[0]
+                # accounts = users_dao.get_users_one(account)
+                # return render_template("user/dishes.html", data=data, **accounts)
+                return render_template("user/dishes.html", data=data)
             else:
                 return "The information you entered is wrong1!"
         elif name in business:
             if business[name] == password:
-                return render_template("business.html")
+                account_data.append(name)
+                # data = business_dao.get_business_one(name)
+                # return render_template("business.html", **data)
+                data = dishes_dao.find_all()
+                return render_template("business/dishes.html", data=data)
             else:
                 return "The information you entered is wrong2!"
         elif name in rider:
             if rider[name] == password:
-                return render_template("rider.html")
+                account_data.append(name)
+                data = riders_dao.get_riders_one(name)
+                return render_template("rider.html", **data)
             else:
                 return "The information you entered is wrong3!"
         else:
             return "The information you entered is wrong4!"
 
 
-
 @app.route('/register', methods=["GET", "POST"])
 def register():
-    if request.method == "POST":
+    if request.method == "GET":
         choose = request.values.get("choose")
         if choose == "users":
             name = request.form.get("name")
@@ -57,7 +75,6 @@ def register():
                 return render_template("index.html")
             else:
                 login_service.users_dao.insert_users((account, password, name, age, gender, address, phone, headPortait))
-                print(name, account, password, phone, age, gender, address,headPortait)
                 return render_template("users.html")
 
         elif choose == "business":
@@ -95,33 +112,33 @@ def register():
     return render_template("register.html")
 
 
-@app.route('/logins', methods=["GET", "POST"])
-def logins():
-    if request.method == "POST":
-        pass
-    return render_template("logins.html")
+# @app.route('/logins', methods=["GET", "POST"])
+# def logins():
+#     if request.method == "POST":
+#         pass
+#     return render_template("logins.html")
 
-@app.route('/rider_profile', methods=["GET"])
-def get_riders():
-    account = "r"
-    data = riders_dao.get_riders_one(account)
-
-    return render_template("rider/profile.html", **data)
-
-@app.route('/user_profile', methods=["GET"])
-def get_users():
-    account = "night_crow"
-    data = users_dao.get_users_one(account)
-
-    return render_template("user/profile.html", **data)
+@app.route('/out', methods=["GET", "POST"])
+def out():
+    render_template("index.html")
 
 
 @app.route('/business_profile', methods=["GET"])
 def get_business():
-    account = "b"
+    account = account_data[0]
     data = business_dao.get_business_one(account)
 
     return render_template("business/profile.html", **data)
+
+
+@app.route('/rider_profile', methods=["GET"])
+def get_riders():
+    # account = account_data[0]
+    account = 'r'
+    data = riders_dao.get_riders_one(account)
+
+    return render_template("rider/profile.html", **data)
+
 
 @app.route('/modify_user_password', methods=["GET"])
 def modify_user_password():
@@ -133,9 +150,52 @@ def modify_user_password():
     data = users_dao.get_users_one(account)
     return render_template("user/profile.html", **data)
 
+@app.route('/user_dishes', methods=["GET"])
+def user_dishes():
+    data = dishes_dao.find_all()
+    return render_template("user/dishes.html", data=data)
+
+@app.route('/user_profile', methods=["GET"])
+def user_profile():
+    account = account_data[0]
+    data = users_dao.get_users_one(account)
+    return render_template("user/profile.html", **data)
+
+@app.route('/user_shopping', methods=["POST"])
+def user_shopping():
+    pass
+
+@app.route('/user_order', methods=["GET", "POST"])
+def user_order():
+    pass
+
+@app.route('/business_dishes', methods=["GET"])
+def business_dishes():
+    data = dishes_dao.find_all()
+    return render_template("business/dishes.html", data=data)
+
+@app.route('/business_profile', methods=["GET"])
+def business_profile():
+    account = account_data[0]
+    data = business_dao.get_business_one(account)
+    return render_template("business/profile.html", **data)
+
+@app.route('/business_shopping', methods=["GET"])
+def business_shopping():
+    pass
+
+@app.route('/business_order', methods=["GET"])
+def business_order():
+    pass
+
+
+#取消缓存
+app.config["SEND_FILE_MAX_AGE_DEFAULT"] =timedelta(seconds=1)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 

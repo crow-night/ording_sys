@@ -2,6 +2,7 @@
 
 HOST = "10.67.1.67"
 # HOST = "10.100.64.4"
+
 USER = "root"
 PWSSED = "password"
 DATABASE = "orderingsys"

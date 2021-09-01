@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>users</title>
-</head>
-<body  marginheight="0" marginwidth="0">
+    <title>user</title>
+
+
+<!--<head  marginheight="0" marginwidth="0">-->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,12 +20,16 @@
 
 <!--    <link rel="stylesheet" type="text/css" href="../css/font-awesome/css/font-awesome.min.css">-->
 
+
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/users.css">
+<!--    <link rel="stylesheet" href="../static/css/users.css">-->
 
 
-
-
+</head>
+<body>
+    {% block title %}Flask{% endblock %}
+    {% block navbar %}
+    <link type="text/css" href= "{{ url_for('static', filename = 'css/users.css') }}" rel="stylesheet" >
         <!--顶部导航条-->
     <header class="app-header" id="headerId"><a class="app-header__logo" href="index.html">orderingsys</a>
         <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
@@ -40,7 +45,7 @@
         </li>
 
         <div class="btn-group dropdown">
-         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-bullhorn"></span>
+         <button type="button" href='/user_profile' class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-bullhorn"></span>
          </button>
 
         </div>
@@ -49,9 +54,9 @@
          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span>
          </button>
          <ul class="dropdown-menu">
-             <li><a href="#" onclick="menuClick('user/profile.html')">个人信息</a></li>
+             <li><a href="/user_profile">个人信息</a></li>
              <li role="separator" class="divider"></li>
-             <li><a href="index.html">退出</a></li>
+             <li><a href="/out">退出</a></li>
          </ul>
         </div>
 
@@ -63,25 +68,29 @@
     <aside class="app-sidebar">
       <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../static/img/logos.png" alt="User Image">
         <div>
-          <p class="app-sidebar__user-name">用户名</p>
+          <p class="app-sidebar__user-name">{{ users_account }}</p>
         </div>
       </div>
       <ul class="app-menu">
-        <li><a class="app-menu__item" href="#" onclick="menuClick('user/dishes.html')"><span class="glyphicon glyphicon-shopping-cart">菜单</span></a></li>
-        <li><a class="app-menu__item" href="#" onclick="menuClick('user/shopping.html')"><span class="glyphicon glyphicon-shopping-cart">购物车</span></a></li>
-        <li><a class="app-menu__item" href="#" onclick="menuClick('user/orders.html')"><span class="glyphicon glyphicon-tag">订单管理</span></a></li>
-<!--        <li><a class="app-menu__item" href="#" onclick="menuClick('user/orders.html')"><span class="glyphicon glyphicon-comment">联系商家或骑手</span></a></li>-->
-<!--        <li><a class="app-menu__item" href="#" onclick="menuClick('user/comment.html')"><span class="glyphicon glyphicon-pencil">评价管理</span></a></li>-->
+        <li><a class="app-menu__item" href="/user_dishes" ><span class="glyphicon glyphicon-shopping-cart">菜单</span></a></li>
+        <li><a class="app-menu__item" href="/user_shopping" ><span class="glyphicon glyphicon-shopping-cart">购物车</span></a></li>
+        <li><a class="app-menu__item" href="/user_order" ><span class="glyphicon glyphicon-tag">订单管理</span></a></li>
+
       </ul>
     </aside>
 
+    {% endblock %}
+
     <main class="app-content" style="margin-top: 30px;">
 	   <div>
+           {% block content %}
            <iframe id="iframe-page-content" src="user/dishes.html" width="100%"  frameborder="no" border="0" marginwidth="0" marginheight=" 0" scrolling="auto" allowtransparency="yes">
            </iframe>
+           {% endblock %}
 
 	   </div>
 	</main>
+
 
 <!--js激活下拉菜单-->
 <script type="text/javascript">
@@ -92,17 +101,17 @@
 
 
 
-<script type="text/javascript">
-      $(function() {
-		var height=document.documentElement.clientHeight;
-		var headerHeight=document.getElementById('headerId').offsetHeight;
-		document.getElementById('iframe-page-content').style.height=(height-headerHeight)+'px';
-		// document.getElementById('iframe-page-content').style.height='1200px';
-		});
-     var menuClick = function(menuUrl) {
-			$("#iframe-page-content").attr('src',menuUrl);
-			};
-    </script>
+<!--<script type="text/javascript">-->
+<!--      $(function() {-->
+<!--		var height=document.documentElement.clientHeight;-->
+<!--		var headerHeight=document.getElementById('headerId').offsetHeight;-->
+<!--		document.getElementById('iframe-page-content').style.height=(height-headerHeight)+'px';-->
+<!--		// document.getElementById('iframe-page-content').style.height='1200px';-->
+<!--		});-->
+<!--     var menuClick = function(menuUrl) {-->
+<!--			$("#iframe-page-content").attr('src',menuUrl);-->
+<!--			};-->
+<!--    </script>-->
 
 
 

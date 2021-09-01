@@ -67,7 +67,6 @@ body{
 }
 
 .clearfix .upload-container .btn-change{
-    background: #FFFFFF;
     border: 1px solid #E5E5E5;
     border-radius: 100px;
     font-size: 14px;
@@ -109,7 +108,8 @@ body{
 }
 
 .btn .btn-primary .btn-default{
-    background: #FFFFFF;
+    background: #54ff2e;
+    /*background: #FFFFFF;*/
     border: 1px solid #E5E5E5;
     border-radius: 100px;
     font-size: 14px;

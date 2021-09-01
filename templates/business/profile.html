@@ -16,12 +16,21 @@
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../static/css/user/profile.css">
+<!--    <link rel="stylesheet" href="../../static/css/user/profile.css">-->
 
 </head>
 <body>
 
-    <form action="/business_profile" method="post">
+{% extends "business.html" %}
+
+{% block title %}首页{% endblock %}
+
+{% block content %}
+
+    <link type="text/css" href= "{{ url_for('static', filename = 'css/business/profile.css') }}" rel="stylesheet">
+
+
+<!--    <form action="/business_profile" method="post">-->
 
     <div class="setting-comment">
         <div class="col-md-12">
@@ -285,8 +294,8 @@
     </div>
 
 
-</form>
-
+<!--</form>-->
+{% endblock %}
 
 </body>
 </html>

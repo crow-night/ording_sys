@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>商家菜品管理</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+x
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
 
     <!--    &lt;!&ndash; jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) &ndash;&gt;-->
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
@@ -17,17 +17,27 @@
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../static/css/business/dishes.css">
+<!--    <link rel="stylesheet" href="../../static/css/business/dishes.css">-->
 
 </head>
 <body>
+
+{% extends "business.html" %}
+
+{% block title %}首页{% endblock %}
+
+{% block content %}
+
+    <link type="text/css" href="{{ url_for('static', filename='css/business/dishes.css') }}" rel="stylesheet">
 
     <h2 class="dishes-all">
         <p class="text-center">所有菜品</p>
     </h2>
 
+
     <div class="table-responsive">
         <table class="table">
+
                 <thead>
                     <tr>
                         <th class="dishes_photo">菜品图片</th>
@@ -36,89 +46,29 @@
                         <th class="dishes_introduction">菜品简介</th>
                         <th class="dishes_productionTime">制作时间</th>
                         <th class="dishes_modify">修改操作</th>
-
                     </tr>
+                    {% for i in data %}
+                    <tr>
+                        <td><img class="img-dishes" src="../../static/img/{{ i[2] }}.jpg"></td>
+                        <td>{{ i[2] }}</td>
+                        <td>{{ i[3] }}</td>
+                        <td>{{ i[4] }}</td>
+                        <td>{{ i[6] }}</td>
+                        <td>
+                              <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myModel">修改</button>
+                              <form role="form">
+                                  <div class="radio">
+                                      <label><input type="radio" name="optionsRadios" id="optionsRadios" value="love" checked>上架</label>
+                                  </div>
+                                  <div class="radio">
+                                      <label><input type="radio" name="optionsRadios" id="optionsRadioss" value="hate">不上架</label>
+                                  </div>
+                              </form>
+                          </td>
+                    </tr>
+                    {% endfor %}
                 </thead>
-                <tbody>
-                      <tr>
-                          <td><img class="img-dishes" src="../../static/img/东坡羹.jpg"></td>
-                          <td>东坡羹</td>
-                          <td>30元</td>
-                          <td>东坡羹是一道色香味俱全的传统名点。是指苏轼 所烹调的一种菜羹。 宋 苏轼《东坡羹颂》引:东坡羹，盖 东坡居士 所煮菜羹也。不用鱼肉五味，有自然之甘。其法以菘若蔓菁若芦菔若荠，皆揉洗数过，去辛苦汁，以生油少许涂釜缘及瓷盌在菜汤中，入生米为糁。</td>
-                          <td>5分钟</td>
-                          <td>
-                              <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myModel">修改</button>
-                              <form role="form">
-                                  <div class="radio">
-                                      <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="love" checked>上架</label>
-                                  </div>
-                                  <div class="radio">
-                                      <label><input type="radio" name="optionsRadios" id="optionsRadios2" value="hate">不上架</label>
-                                  </div>
-                              </form>
-                          </td>
 
-                      </tr>
-
-                      <tr>
-                          <td><img class="img-dishes" src="../../static/img/东坡肘子.jpg"></td>
-                          <td>东坡肘子</td>
-                          <td>30元</td>
-                          <td>东坡肘子有肥而不腻、粑而不烂的特点，色、香、味、形俱佳 ，东坡肘子汤汁乳白，雪豆粉白，猪肘肥软适口，原汁原味，香气四溢。</td>
-                          <td>5分钟</td>
-                          <td>
-                              <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myModel">修改</button>
-                                    <form role="form">
-                                      <div class="radio">
-                                          <label><input type="radio" name="optionsRadios" id="optionsRadios3" value="love" checked>上架</label>
-                                      </div>
-                                      <div class="radio">
-                                          <label><input type="radio" name="optionsRadios" id="optionsRadios4" value="hate">不上架</label>
-                                      </div>
-                                  </form>
-                          </td>
-
-                      </tr>
-
-                      <tr>
-                          <td><img class="img-dishes" src="../../static/img/麻婆豆腐.jpg"></td>
-                          <td>麻婆豆腐</td>
-                          <td>30元</td>
-                          <td>麻婆豆腐始创于清朝同治元年(1862年)，在成都万福桥边，有一家原名'陈兴盛饭铺'的店面。店主陈春富(陈森富)早殁，小饭店便由老板娘经营，女老板面上微麻，人称'陈麻婆'。麻婆豆腐的特色在于麻、辣、烫、香、酥、嫩、鲜、活八字，也称之为八字箴言。</td>
-                          <td>5分钟</td>
-                          <td>
-                              <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myModel">修改</button>
-                              <form role="form">
-                                  <div class="radio">
-                                      <label><input type="radio" name="optionsRadios" id="optionsRadios5" value="love" checked>上架</label>
-                                  </div>
-                                  <div class="radio">
-                                      <label><input type="radio" name="optionsRadios" id="optionsRadios6" value="hate">不上架</label>
-                                  </div>
-                              </form>
-                          </td>
-
-                      </tr>
-                      <tr>
-                          <td><img class="img-dishes" src="../../static/img/盐焗鸡肉.jpg"></td>
-                          <td>盐焗鸡肉</td>
-                          <td>30元</td>
-                          <td>菜品简介</td>
-                          <td>5分钟</td>
-                          <td>
-                              <button class="btn btn-primary btn-default btn-change" data-toggle="modal" data-target="#myModel">修改</button>
-                              <form role="form">
-                                  <div class="radio">
-                                      <label><input type="radio" name="optionsRadios" id="optionsRadios7" value="love" checked>上架</label>
-                                  </div>
-                                  <div class="radio">
-                                      <label><input type="radio" name="optionsRadios" id="optionsRadios8" value="hate">不上架</label>
-                                  </div>
-                              </form>
-                          </td>
-
-                      </tr>
-                </tbody>
       </table>
     </div>
 
@@ -160,8 +110,9 @@
             </div>
         </div>
     </div>
-
-
+      </table>
+    </div>
+{% endblock %}
 </body>
 
 </html>

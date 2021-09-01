@@ -94,13 +94,13 @@ class MysqlHelper(object):
             print(e)
 
 
-# if __name__ == '__main__':
-#     mysql = MysqlHelper("10.67.1.67", "root", "password", "orderingsys", "mysql_native_password")
-#     # print(mysql.insert("INSERT INTO users ( users_account, users_password, users_name, users_age, users_gender, users_defaultAddress, users_phone, users_headPortrait ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s )", (None, None, None, None, None, None, None, None)))
-#
-#     # mysql.delete("delete from users where users_id=%s",("7"))
-#     print(mysql.get_one("select * from users where users_id=%s", ("6")))
-#     print(mysql.get_all("select * from users"))
+if __name__ == '__main__':
+    mysql = MysqlHelper("10.67.1.67", "root", "password", "orderingsys", "mysql_native_password")
+    # print(mysql.insert("INSERT INTO users ( users_account, users_password, users_name, users_age, users_gender, users_defaultAddress, users_phone, users_headPortrait ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s )", (None, None, None, None, None, None, None, None)))
+
+    # mysql.delete("delete from users where users_id=%s",("7"))
+    print(mysql.get_one("select * from users where users_id=%s", ("6")))
+    print(mysql.get_all("select * from users"))
 
 
 
