@@ -5,19 +5,37 @@
     <title>orderingsys</title>
 </head>
 <body>
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
 
-	<form action = "/login" method="post">
-		<input type = "text" name="username" placeholder="请输入账号：">
-		<input type = "password" name="password" placeholder="请输入密码：">
-
-		<input type = "submit" value="登录">
-
-		<a href="/register_user"><input type="button" value="用户注册"></a>
-		<a href="/register_business"><input type="button" value="商家注册"></a>
-		<a href="/register_rider"><input type="button" value="骑手注册"></a>
-
+	<form action="/logins" method="post">
+	<h1>
+		<p class="text-center">你输入的信息错误，请确认账号密码重新登录！</p>
+		<button href="/logins" class="btn btn-primary">重新登录</button>
+	</h1>
 	</form>
 
+<style>
+	body{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+
+    background: url("../static/img/0.jpg")  no-repeat center 0px;
+	background-size: cover;
+
+     background-position: center 0;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+      -webkit-background-size: cover;
+      -o-background-size: cover;
+      -moz-background-size: cover;
+      -ms-background-size: cover;
+}
+
+	.btn.btn-primary{
+		margin-left: 50%;
+	}
+</style>
 
 </body>
 </html>

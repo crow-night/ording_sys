@@ -35,10 +35,3 @@ def update_riders(params=()):
 def delete_riders_id(params=()):
     MysqlHelper.delete(sql_delete, params)
 
-
-
-
-
-
-
-

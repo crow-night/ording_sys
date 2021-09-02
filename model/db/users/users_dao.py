@@ -35,6 +35,9 @@ def delete_users_id(params=()):
 def modify_password(params=()):
     MysqlHelper.update(sql_modify_password, params)
 
-# if __name__ == '__main__':
-#     modify_password(("7", "5"))
-#     print(get_users_one("5"))
+if __name__ == '__main__':
+    # modify_password(("7", "5"))
+    # print(get_users_one("5"))
+
+    print(type(get_users_all()))
+    print(get_users_all())

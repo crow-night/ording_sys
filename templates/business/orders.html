@@ -2,9 +2,92 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>商家订单</title>
+
+
 </head>
-<body>
-order
+<body style="background-color: #ffffff">
+
+{% extends "business.html" %}
+
+{% block title %}首页{% endblock %}
+
+{% block content %}
+
+    <link type="text/css" href="{{ url_for('static', filename='css/user/order.css') }}" rel="stylesheet">
+
+
+    <h2 class="dishes-all">
+        <p class="text-center">未完成订单</p>
+    </h2>
+
+    <div class="table-responsive">
+        <table class="table">
+                <thead>
+                    <tr>
+                        <th class="businessOrder_business">用户名</th>
+                        <th class="businessOrder_dishes">餐品</th>
+                        <th class="businessOrder_status">餐品状态</th>
+                        <th class="businessOrder_price">总价</th>
+                        <th class="businessOrder_userPhone">用户电话号码</th>
+                        <th class="businessOrder_riderPhone">骑手电话号码</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                      {% for i in data_incomplete %}
+                    <tr>
+                        <td>{{ i[1] }}</td>
+                        <td>{{ i[5] }}</td>
+                        <td>{{ i[2] }}</td>
+                        <td>{{ i[4] }}</td>
+                        <td>{{ i[6] }}</td>
+                        <td>{{ i[7] }}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+      </table>
+    </div>
+
+    <h2 class="dishes-all">
+        <p class="text-center">已完成订单</p>
+    </h2>
+
+    <div class="table-responsive">
+        <table class="table">
+                <thead>
+                    <tr>
+                        <th class="businessOrder_business">用户名</th>
+                        <th class="businessOrder_dishes">餐品</th>
+                        <th class="businessOrder_status">餐品状态</th>
+                        <th class="businessOrder_price">总价</th>
+                        <th class="businessOrder_userPhone">用户电话号码</th>
+                        <th class="businessOrder_riderPhone">骑手电话号码</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                      {% for i in data_complete %}
+                    <tr>
+                        <td>{{ i[1] }}</td>
+                        <td>{{ i[5] }}</td>
+                        <td>{{ i[2] }}</td>
+                        <td>{{ i[4] }}</td>
+                        <td>{{ i[6] }}</td>
+                        <td>{{ i[7] }}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+      </table>
+    </div>
+
+
+
+{% endblock %}
 </body>
+
 </html>

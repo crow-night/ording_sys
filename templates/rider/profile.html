@@ -16,13 +16,17 @@
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../static/css/rider/profile.css">
+<!--    <link rel="stylesheet" href="../../static/css/rider/profile.css">-->
 
 </head>
 <body>
 
-    <form action="/rider_profile" method="post">
+{% extends "rider.html" %}
+{% block title %}首页{% endblock %}
+{% block content %}
 
+    <link type="text/css" href= "{{ url_for('static', filename = 'css/rider/profile.css') }}" rel="stylesheet">
+    <script type="javascript" src="{{ url_for('static', filename = 'js/model.js') }}"></script>
 
     <div class="setting-comment">
         <div class="col-md-12">
@@ -341,9 +345,9 @@
             </div>
         </div>
     </div>
+{% endblock %}
 
 
-</form>
 
 </body>
 </html>

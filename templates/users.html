@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <title>user</title>
 
-
-<!--<head  marginheight="0" marginwidth="0">-->
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -22,7 +19,7 @@
 
 
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-<!--    <link rel="stylesheet" href="../static/css/users.css">-->
+    <link rel="stylesheet" href="../static/css/users.css">
 
 
 </head>
@@ -31,7 +28,7 @@
     {% block navbar %}
     <link type="text/css" href= "{{ url_for('static', filename = 'css/users.css') }}" rel="stylesheet" >
         <!--顶部导航条-->
-    <header class="app-header" id="headerId"><a class="app-header__logo" href="index.html">orderingsys</a>
+    <header class="app-header" id="headerId"><a class="app-header__logo" href="/out" methods="POST">orderingsys</a>
         <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
 
         <ul class="app-nav">
@@ -73,8 +70,9 @@
       </div>
       <ul class="app-menu">
         <li><a class="app-menu__item" href="/user_dishes" ><span class="glyphicon glyphicon-shopping-cart">菜单</span></a></li>
-        <li><a class="app-menu__item" href="/user_shopping" ><span class="glyphicon glyphicon-shopping-cart">购物车</span></a></li>
         <li><a class="app-menu__item" href="/user_order" ><span class="glyphicon glyphicon-tag">订单管理</span></a></li>
+        <li><a class="app-menu__item" href="/user_shopping" ><span class="glyphicon glyphicon-shopping-cart">购物车</span></a></li>
+
 
       </ul>
     </aside>
